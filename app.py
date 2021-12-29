@@ -19,9 +19,9 @@ def predict():
 
     # model inference [2 LINES]
     if do_fast:
-        predictions = ml_handler.handle()
+        predictions = ml_handler.handle(text)
     else:
-        predictions = ml_handler.handle()
+        predictions = ml_handler.handle(text)
 
     # response
     result = json.dumps({str(i): {'text': t, 'label': l, 'confidence': c}
