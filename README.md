@@ -21,5 +21,5 @@ python app.py
 
 ```json
 {"text": ["...", "..."],
- "use_fast": False}
- ```
+ "use_fast": false}
+```
