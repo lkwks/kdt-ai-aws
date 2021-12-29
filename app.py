@@ -5,6 +5,9 @@ app = Flask(__name__)
 
 # assign model handler as global variable [2 LINES]
 
+ml_handler = MLModelHandler()
+#dl_handler = DLModelHandler()
+
 
 @app.route("/predict", methods=["POST"])
 def predict():
@@ -16,9 +19,9 @@ def predict():
 
     # model inference [2 LINES]
     if do_fast:
-        pass
+        predictions = ml_handler.handle()
     else:
-        pass
+        predictions = ml_handler.handle()
 
     # response
     result = json.dumps({str(i): {'text': t, 'label': l, 'confidence': c}
