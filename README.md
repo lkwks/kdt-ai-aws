@@ -17,7 +17,7 @@ python app.py
 
 - requirements.txt 설치할 때 transformers, scikit-learn이 설치가 안될 수 있음. 이 경우 conda update 명령어를 입력해 업데이트를 해야.
 
-3. 다음과 같은 형식의 .json 파일을 /predict URI에 POST method로 서버에 전송한다. (HTTP URI: /predict)
+3. 다음과 같은 형식의 .json 파일을 /predict URI에 POST method로 서버에 전송한다.
 
 ```json
 {"text": ["...", "..."],
