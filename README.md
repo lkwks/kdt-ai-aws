@@ -17,7 +17,7 @@ python app.py
 
 - requirements.txt 설치할 때 transformers, scikit-learn이 설치가 안될 수 있음. 이 경우 conda update 명령어를 입력해 업데이트를 해야.
 
-3. 다음과 같은 형식의 .json 파일을 /predict URI에 POST method로 서버에 전송한다.
+3. 다음과 같은 형식의 .json 파일을 http://localhost:5000/predict URI에 POST method로 서버에 전송한다.
 
 ```json
 {"text": ["...", "..."],
@@ -26,4 +26,4 @@ python app.py
 
 ---
 
-현재 위 순서대로 서버를 실행해보아도 정상적으로 서버 응답이 이루어지지 않는 문제가 있음. 원인은 아직 모름.. 
+왜 localhost에서 서버가 실행되는지 이유를 아직 알지 못함.
