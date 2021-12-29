@@ -1,5 +1,6 @@
 from flask import Flask, request, json
 from model import MLModelHandler, DLModelHandler
+from train_ml import *
 
 app = Flask(__name__)
 
@@ -27,6 +28,27 @@ def predict():
     result = json.dumps({str(i): {'text': t, 'label': l, 'confidence': c}
                          for i, (t, l, c) in enumerate(zip(text, predictions[0], predictions[1]))})
     return result
+
+
+
+@app.route("/train")
+def train():
+    logging.basicConfig(format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=logging.INFO)
+
+    start_time = datetime.now()
+    # Download train and test data from github
+    for mode in ['train', 'test']:
+        download_data(mode)
+
+    # train and evaluate model
+    model, vectorizer = train_and_evaluate()
+
+    # Serialization
+    serialization(model, vectorizer)
+    return f"Elapsed time : {datetime.now() - start_time}"
+
+
+
 
 
 if __name__ == "__main__":
